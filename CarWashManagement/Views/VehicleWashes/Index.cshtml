@@ -1,0 +1,71 @@
+﻿@model IEnumerable<CarWashManagement.Models.VehicleWash>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.client.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.vehicle.VehicleType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.wash.WashType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Make)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VehicleReg)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cost)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.client.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.vehicle.VehicleType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.wash.WashType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Make)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VehicleReg)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cost)
+
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.RefNo }) |
+            @Html.ActionLink("Details", "Details", new { id=item.RefNo }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.RefNo })
+        </td>
+    </tr>
+}
+
+</table>
